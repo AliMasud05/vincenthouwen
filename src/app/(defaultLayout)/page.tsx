@@ -1,8 +1,6 @@
-import { useState } from "react";
 import GardeningServicePage from "@/components/garden/GardeningServicePage";
 
 const HomePage = () => {
-  const [postlCode, setPostalCode] = useState("");
   return (
     <div className="container mx-auto  bg-white min-h-screen">
      <div className="my-4">
@@ -14,7 +12,7 @@ const HomePage = () => {
       </div>
      </div>
      <section>
-      <GardeningServicePage data={setPostalCode} />
+      <GardeningServicePage  />
      </section>
     <section>
       
