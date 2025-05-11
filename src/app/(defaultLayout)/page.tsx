@@ -1,4 +1,5 @@
 import GardeningServicePage from "@/components/garden/GardeningServicePage";
+import MultiStepForm from "@/components/step-form/multi-step-form";
 
 const HomePage = () => {
   return (
@@ -12,7 +13,8 @@ const HomePage = () => {
       </div>
      </div>
      <section>
-      <GardeningServicePage  />
+      {/* <GardeningServicePage  /> */}
+      <MultiStepForm />
      </section>
     <section>
       
