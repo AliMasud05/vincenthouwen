@@ -4,10 +4,17 @@ import { useState } from "react"
 import { RadioOption } from "../check-radio/radio-option"
 import FormSection from "../ui/form-section"
 import { RadioGroup } from "../ui/radio-group"
-
 interface StepEightProps {
-  formData: any
-  updateFormData: (data: any) => void
+  formData: {
+    gardenAccess?: string[];
+    additionalInfo?: string;
+    [key: string]: string | string[] | undefined | Record<string, boolean>; // Allow other string properties
+  };
+  updateFormData: (data: Partial<{
+    gardenAccess?: string[];
+    additionalInfo?: string;
+    [key: string]: string | string[] | undefined | Record<string, boolean>;
+  }>) => void;
 }
 
 export default function StepEight({ formData, updateFormData }: StepEightProps) {
@@ -53,16 +60,19 @@ export default function StepEight({ formData, updateFormData }: StepEightProps) 
           </RadioGroup>
         </div>
       </FormSection>
+      <div className="max-w-2xl">
 
-      {/* <FormSection title="Additional information (optional)" subtitle="">
+
+      <FormSection title="Additional information (optional)" subtitle="">
         <textarea
           rows={4}
           className="block w-full rounded-md border border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm p-3"
           placeholder="Enter any additional information here..."
           value={additionalInfo}
           onChange={handleAdditionalInfo}
-        />
-      </FormSection> */}
+          />
+      </FormSection>
+          </div>
     </div>
   )
 }

@@ -2,8 +2,8 @@
 
 import type React from "react"
 
-import { useState, useRef } from "react"
-import { CloudUpload, Upload } from "lucide-react"
+import { CloudUpload } from "lucide-react"
+import { useRef, useState } from "react"
 
 export function FileUploadArea() {
   const [files, setFiles] = useState<File[]>([])

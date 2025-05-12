@@ -3,7 +3,7 @@
 import { useState } from "react"
 
 interface SelectDropdownProps {
-  label: string
+  
   options: string[]
   value: string
   onChange: (value: string) => void
@@ -11,7 +11,7 @@ interface SelectDropdownProps {
 }
 
 export default function SelectDropdown({
-  label,
+ 
   options,
   value,
   onChange,

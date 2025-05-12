@@ -4,11 +4,12 @@ import FormSection from "../ui/form-section"
 import { Input } from "../ui/input"
 
 interface StepFourProps {
-  formData: any
-  updateFormData: (data: any) => void
+  formData: { area?: number }
+  updateFormData: (data: { area?: number }) => void
 }
 
 export default function StepFour({ formData, updateFormData }: StepFourProps) {
+  console.log(formData,updateFormData);
 
   return (
     <FormSection title="What is the area of ​​the garden in m²? (optional)" subtitle="A rough estimate is sufficient for the professional">

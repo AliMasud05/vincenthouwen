@@ -1,17 +1,16 @@
 "use client"
-import FormSection from "../ui/form-section"
-import OptionCard from "../ui/option-card"
-import { GardenIcon, LandscapeIcon, PlantIcon, RenovationIcon } from "../ui/garden-icons"
-import { RadioGroup } from "../ui/radio-group"
-import { RadioOption } from "../check-radio/radio-option"
 import { useState } from "react"
+import { RadioOption } from "../check-radio/radio-option"
+import FormSection from "../ui/form-section"
+import { RadioGroup } from "../ui/radio-group"
 
 interface StepSixProps {
-  formData: any
-  updateFormData: (data: any) => void
+  formData: { gardenNeeds: string[] }
+  updateFormData: (data: { gardenNeeds: string[] }) => void
 }
 
 export default function StepSix({ formData, updateFormData }: StepSixProps) {
+  console.log(formData, updateFormData);
   // const options = [
   //   {
   //     id: "front-garden",
@@ -48,9 +47,9 @@ export default function StepSix({ formData, updateFormData }: StepSixProps) {
   { id: "another_reason", label: "Another reason, namely" }
 ];
 
-  const handleSelect = (id: string) => {
-    updateFormData({ gardenLocation: id })
-  }
+  // Example usage of handleSelect
+  // Uncomment the following code to use handleSelect with a button
+  // <button onClick={() => updateFormData({ gardenLocation: 'front-garden' })}>Select Front Garden</button>
 
   return (
     <FormSection title="What is the location of the garden?" subtitle="Select the location of your garden project">

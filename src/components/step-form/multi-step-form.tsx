@@ -30,15 +30,15 @@ export default function MultiStepForm() {
     gardenSize: "",
     regularMaintenance: "",
     gardenNeeds: [] as string[],
-    gardenLocation: {},
-    gardenAccess: [],
+    gardenLocation: {} as Record<string, boolean>,
+    gardenAccess: [] as string[],
     photos: [],
     additionalInfo: "",
     name: "",
     email: "",
     phone: "",
     acceptTerms: false,
-    selectedServices: {},
+    selectedServices: {} as Record<string, boolean>,
   })
 
   const totalSteps = 11
@@ -86,9 +86,19 @@ export default function MultiStepForm() {
       case 2:
         return <StepTwo formData={formData} updateFormData={updateFormData} />
       case 3:
-        return <StepThree formData={formData} updateFormData={updateFormData} />
+        return <StepThree 
+          formData={{ 
+            ...formData, 
+            gardenLocation: JSON.stringify(formData.gardenLocation),
+            selectedServices: JSON.stringify(formData.selectedServices)
+          }} 
+          updateFormData={updateFormData} 
+        />
       case 4:
-        return <StepFour formData={formData} updateFormData={updateFormData} />
+        return <StepFour 
+          formData={{ area: formData.gardenSize ? parseFloat(formData.gardenSize) : undefined }} 
+          updateFormData={(data) => updateFormData({ gardenSize: data.area?.toString() })} 
+        />
       case 5:
   return <StepFive 
     formData={formData} 
@@ -99,9 +109,19 @@ export default function MultiStepForm() {
       case 6:
         return <StepSix formData={formData} updateFormData={updateFormData} />
       case 7:
-        return <StepSeven formData={formData} updateFormData={updateFormData} />
+        return <StepSeven 
+          formData={{ gardenLocation: formData.gardenLocation }} 
+          updateFormData={(data) => updateFormData({ gardenLocation: data.gardenLocation })} 
+        />
       case 8:
-        return <StepEight formData={formData} updateFormData={updateFormData} />
+        return <StepEight 
+          formData={{ 
+            ...formData, 
+            acceptTerms: formData.acceptTerms ? "true" : "false",
+            gardenLocation: JSON.stringify(formData.gardenLocation)
+          }} 
+          updateFormData={updateFormData} 
+        />
       case 9:
         return <StepNine formData={formData} updateFormData={updateFormData} />
       case 10:
